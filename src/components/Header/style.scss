@@ -1,0 +1,223 @@
+header {
+  height: unset !important;
+  min-height: unset !important;
+
+  .headerArea {
+      position: relative;
+      z-index: 99;
+      left: 0;
+      top: 0;
+      width: 100%;
+
+      .container {
+        padding: 10px 0;
+        max-width: 1170px;
+        .responsiveMenuWrap  {
+          padding: 0;
+        }
+        transition: padding 0.5s;
+      }
+
+      &.sticky {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100% !important;
+          background: #fff;
+          box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1);
+          z-index: 9999;
+          .container {
+            padding: 0;
+          }
+      }
+
+      .logo {
+        @media (max-width:991px) {
+          padding: 20px 0;
+          position: relative;
+        }
+        @media (max-width:500px) {
+            position: relative;
+        }
+        a {
+          height: 73px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          img {
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 14px;
+            @media (max-width:991px) {
+              margin-bottom: 0;
+              max-width: 320px;
+            }
+          }
+        }
+      }
+
+      .mainMenu {
+          display: flex;
+          justify-content: flex-end;
+          list-style: none;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+          text-transform: uppercase;
+          list-style-type: none;
+          text-align: left;
+          z-index: 1001;
+          height: 73px;
+          margin: 0;
+          align-items: center;
+
+          li {
+            position: relative;
+            padding: 0;
+            z-index: 101;
+            margin: 0px 4px 0px 0px;
+
+              &:last-child {
+                  margin-right: 0;
+              }
+
+              a {
+                display: inline-block;
+                text-decoration: none;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1;
+                color: #383634;
+                margin: 0;
+                padding: 13px 12px 12px 14px;
+                text-align: center;
+                @media (max-width:991px) {
+                    padding: 10px 0px;
+                }
+
+
+                  &:hover {
+                      color: #fff;
+                      background-color: #859e40;
+                      border-radius: 4px;
+                  }
+
+                  &.active {
+                    color: #fff;
+                    background-color: #859e40;
+                    border-radius: 4px;
+                  }
+              }
+          }
+      }
+
+      @media (max-width:991px) {
+        .responsiveMenuWrap {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            background: #5d5e5e;
+            padding: 20px 40px;
+            visibility: hidden;
+            opacity: 0;
+            transform: scaleY(0);
+            -webkit-transform: scaleY(0);
+            -moz-transform: scaleY(0);
+            transform-origin: top;
+            -webkit-transform-origin: top;
+            z-index: 999;
+
+            &.active {
+                visibility: visible;
+                opacity: 1;
+                transform: scaleY(1);
+                -webkit-transform: scaleY(1);
+                -moz-transform: scaleY(1);
+            }
+
+            .mainMenu {
+                display: block;
+                justify-content: flex-start;
+                height: auto;
+
+                li {
+                    padding: 2px 0px;
+                    margin-right: 0;
+
+                    a {
+                        display: inline-block;
+                        background: none;
+                        color: white;
+
+                        &.active {
+                          color: #859e40;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .responsiveMenuTigger {
+        margin-top: 54px;
+        float: right;
+        cursor: pointer;
+        padding: 0 1.5em 0 0;
+
+        li {
+            height: 2px;
+            width: 25px;
+            background: #222;
+            margin-bottom: 3px;
+            margin-top: 0;
+            list-style: none;
+            -webkit-transition: all 0.6s ease-in-out 0s;
+            transition: all 0.6s ease-in-out 0s;
+        }
+
+        &.active {
+            li {
+                &.first {
+                    -webkit-transform: translateY(5px) rotateZ(-135deg);
+                    transform: translateY(5px) rotateZ(-135deg);
+                }
+
+                &.second {
+                    opacity: 0;
+                }
+
+                &.third {
+                    -webkit-transform: translateY(-5px) rotateZ(135deg);
+                    transform: translateY(-5px) rotateZ(135deg);
+                }
+            }
+        }
+    }
+
+  }
+  
+  &.financeHeaderArea {
+    .responsiveMenuTigger {
+        @media (max-width:1100px) {
+            li{
+                background: #222;
+            }
+        }
+    }
+    @media (max-width:991px) {
+        .responsiveMenuWrap{
+            ul {
+                li{
+                    a{
+                        padding: 10px 0px;
+                        color: #fff;
+                    }
+                }
+            }
+        } 
+    }
+    
+}
+  
+}
