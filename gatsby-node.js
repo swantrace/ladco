@@ -19,11 +19,58 @@ exports.createPages = async ({ graphql, actions }) => {
       wpgraphql {
         pages {
           nodes {
-            id
-            title(format: RENDERED)
-            content
+            title
             slug
+            id
             isFrontPage
+            blocks {
+              __typename
+              ... on WPGraphQL_AcfProjectLinkBannerBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfServiceIconBoxesBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_CoreHtmlBlock {
+                saveContent
+              }
+              ... on WPGraphQL_AcfPropertyMapModalTriggerBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfProjectHeaderBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfBuilderLogoListingsBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfPropertyMapModalTriggerBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfPropertyMapModalTrigger2Block {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfProjectPhotoGalleryBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfProjectFeatureCardsBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfAboutUsHeaderBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfAboutUsTimelineBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfAboutUsIntroductionBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfAboutUsWhoWeAreBlock {
+                renderedContent
+              }
+              ... on WPGraphQL_AcfFeatureIconBoxesBlock {
+                renderedContent
+              }
+            }
           }
         }
       }
@@ -45,6 +92,8 @@ exports.createPages = async ({ graphql, actions }) => {
   // and we use it for the slug to preserve url structure.
   // The Page ID is prefixed with 'PAGE_'
   wpgraphql.pages.nodes.forEach(node => {
+    console.log(node.blocks)
+
     // Gatsby uses Redux to manage its internal state.
     // Plugins and sites can use functions like "createPage"
     // to interact with Gatsby.
@@ -58,9 +107,18 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         id: node.id,
         title: node.title,
-        content: node.content,
+        blocks: node.blocks,
         slug: node.slug,
+        blocks: node.blocks,
       },
     })
+  })
+}
+exports.onCreateWebpackConfig = ({ actions }) => {
+  const { setWebpackConfig } = actions
+  setWebpackConfig({
+    externals: {
+      jquery: "jQuery",
+    },
   })
 }

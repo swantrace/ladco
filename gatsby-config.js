@@ -29,7 +29,7 @@ module.exports = {
       options: {
         typeName: `WPGraphQL`,
         fieldName: `wpgraphql`,
-        url: `http://localhost:8080/wordpress/graphql`,
+        url: `http://localhost:8888/graphql`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

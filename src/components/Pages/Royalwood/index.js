@@ -1,9 +1,33 @@
 import React, { Fragment } from "react"
 import { Container } from "reactstrap"
+import { SlideShow } from "../../Elements/index"
+import slideRoyalWood1 from "../../../assets/images/slide-royal-wood-1.jpg"
+import slideRoyalWood2 from "../../../assets/images/slide-royal-wood-2.jpg"
 import "./style.scss"
 
 const Royalwood = props => {
-  return <Fragment>{props.children}</Fragment>
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    autoplay: true,
+  }
+  return (
+    <Fragment>
+      <SlideShow settings={settings}>
+        <div>
+          <img src={slideRoyalWood1} />
+        </div>
+        <div>
+          <img src={slideRoyalWood2} />
+        </div>
+      </SlideShow>
+      {props.children}
+    </Fragment>
+  )
 }
 
 export default Royalwood

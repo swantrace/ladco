@@ -26,6 +26,7 @@ const menus = [
 ]
 
 export default ({ pageContext }) => {
+  debugger
   var PageWrapperFunc = null
   switch (pageContext.slug) {
     case "home":
@@ -78,10 +79,11 @@ export default ({ pageContext }) => {
       <Header menus={menus} className="LadcoHeaderArea" logo={logo} />
       <main>
         <PageWrapperFunc pageContext={pageContext}>
-          <div
-            className={`page-${pageContext.slug}-main-content`}
-            dangerouslySetInnerHTML={{ __html: pageContext.content }}
-          ></div>
+          {pageContext.blocks.map(block => (
+            <div
+              dangerouslySetInnerHTML={{ __html: block.renderedContent }}
+            ></div>
+          ))}
         </PageWrapperFunc>
       </main>
       <Footer menus={menus} className="LadcoFooterArea" />
