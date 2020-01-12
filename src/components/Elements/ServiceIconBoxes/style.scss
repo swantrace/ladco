@@ -1,0 +1,17 @@
+.main-home{
+  .icon-box:before {
+    content: none;
+  }
+
+  .icon:before { 
+    position: relative;
+    top: -5px;
+  }
+
+  .icon-box a i {
+    position: relative;
+    top: 4px;
+    margin: 0px 0px 0px 5px;
+  }
+
+}

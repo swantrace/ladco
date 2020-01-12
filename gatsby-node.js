@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // queries against the local Gatsby GraphQL schema. Think of
   // it like the site has a built-in database constructed
   // from the fetched data that you can run queries against.
-  const result = await graphql(`
+  const resultOfPages = await graphql(`
     {
       wpgraphql {
         pages {
@@ -78,12 +78,12 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   // Check for any errors
-  if (result.errors) {
-    throw new Error(result.errors)
+  if (resultOfPages.errors) {
+    throw new Error(resultOfPages.errors)
   }
 
   // Access query results via object destructuring
-  const { wpgraphql } = result.data
+  const { wpgraphqlOfPages } = resultOfPages.data
 
   // Create Page pages.
   const pageTemplate = path.resolve(`./src/templates/page.js`)
@@ -91,7 +91,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // The path field contains the relative original WordPress link
   // and we use it for the slug to preserve url structure.
   // The Page ID is prefixed with 'PAGE_'
-  wpgraphql.pages.nodes.forEach(node => {
+  wpgraphqlOfPages.pages.nodes.forEach(node => {
     console.log(node.blocks)
 
     // Gatsby uses Redux to manage its internal state.
@@ -107,9 +107,93 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         id: node.id,
         title: node.title,
-        blocks: node.blocks,
         slug: node.slug,
         blocks: node.blocks,
+      },
+    })
+  })
+
+  // The “graphql” function allows us to run arbitrary
+  // queries against the local Gatsby GraphQL schema. Think of
+  // it like the site has a built-in database constructed
+  // from the fetched data that you can run queries against.
+  const resultOfSuppliers = await graphql(`
+    {
+      wpgraphql {
+        suppliers {
+          nodes {
+            supplierInfoGroup {
+              gallery {
+                mediaItemUrl
+              }
+              logo {
+                mediaItemUrl
+              }
+              supplierContactAddress
+              supplierEmail
+              supplierFacebookUrl
+              supplierFax
+              supplierGoogleplusUrl
+              supplierOpeningHours
+              supplierTelephone
+              supplierTwitterUrl
+              supplierWebsite
+            }
+            id
+            slug
+            title
+            content(format: RAW)
+          }
+        }
+      }
+    }
+  `)
+
+  // Check for any errors
+  if (resultOfSuppliers.errors) {
+    throw new Error(resultOfSuppliers.errors)
+  }
+
+  // Access query results via object destructuring
+  const { wpgraphqlOfSuppliers } = resultOfSuppliers.data
+
+  // Create Page pages.
+  const supplierTemplate = path.resolve(`./src/templates/supplier.js`)
+  // We want to create a detailed page for each page node.
+  // The path field contains the relative original WordPress link
+  // and we use it for the slug to preserve url structure.
+  // The Page ID is prefixed with 'PAGE_'
+  wpgraphqlOfPages.suppliers.nodes.forEach(node => {
+    console.log(node.supplierInfoGroup)
+
+    // Gatsby uses Redux to manage its internal state.
+    // Plugins and sites can use functions like "createPage"
+    // to interact with Gatsby.
+    createPage({
+      // Each page is required to have a `path` as well
+      // as a template component. The `context` is
+      // optional but is often necessary so the template
+      // can query data specific to each page.
+      path: `suppliers/${node.slug}`,
+      component: slash(supplierTemplate),
+      context: {
+        id: node.id,
+        title: node.title,
+        content: node.content,
+        slug: node.slug,
+        gallery: node.supplierInfoGroup.gallery.map(
+          imgObj => imgObj.mediaItemUrl
+        ),
+        logo: node.supplierInfoGroup.logo.mediaItemUrl,
+        address: node.supplierInfoGroup.supplierContactAddress,
+        email: node.supplierInfoGroup.supplierEmail,
+        facebook: node.supplierInfoGroup.supplierFacebookUrl,
+        fax: node.supplierInfoGroup.supplierFax,
+        googlePlus: node.supplierInfoGroup.supplierGoogleplusUrl,
+        openingHours: node.supplierInfoGroup.supplierOpeningHours,
+        telephone: node.supplierInfoGroup.supplierTelephone,
+        twitter: node.supplierInfoGroup.supplierTwitterUrl,
+        website: node.supplierInfoGroup.supplierWebsite,
       },
     })
   })
