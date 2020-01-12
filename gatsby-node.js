@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // queries against the local Gatsby GraphQL schema. Think of
   // it like the site has a built-in database constructed
   // from the fetched data that you can run queries against.
-  const resultOfPages = await graphql(`
+  const result = await graphql(`
     {
       wpgraphql {
         pages {
@@ -73,54 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-      }
-    }
-  `)
-
-  // Check for any errors
-  if (resultOfPages.errors) {
-    throw new Error(resultOfPages.errors)
-  }
-
-  // Access query results via object destructuring
-  const { wpgraphqlOfPages } = resultOfPages.data
-
-  // Create Page pages.
-  const pageTemplate = path.resolve(`./src/templates/page.js`)
-  // We want to create a detailed page for each page node.
-  // The path field contains the relative original WordPress link
-  // and we use it for the slug to preserve url structure.
-  // The Page ID is prefixed with 'PAGE_'
-  wpgraphqlOfPages.pages.nodes.forEach(node => {
-    console.log(node.blocks)
-
-    // Gatsby uses Redux to manage its internal state.
-    // Plugins and sites can use functions like "createPage"
-    // to interact with Gatsby.
-    createPage({
-      // Each page is required to have a `path` as well
-      // as a template component. The `context` is
-      // optional but is often necessary so the template
-      // can query data specific to each page.
-      path: node.isFrontPage ? `/` : `/${node.slug}`,
-      component: slash(pageTemplate),
-      context: {
-        id: node.id,
-        title: node.title,
-        slug: node.slug,
-        blocks: node.blocks,
-      },
-    })
-  })
-
-  // The “graphql” function allows us to run arbitrary
-  // queries against the local Gatsby GraphQL schema. Think of
-  // it like the site has a built-in database constructed
-  // from the fetched data that you can run queries against.
-  const resultOfSuppliers = await graphql(`
-    {
-      wpgraphql {
-        suppliers {
+        suppliers(first: 30) {
           nodes {
             supplierInfoGroup {
               gallery {
@@ -142,7 +95,7 @@ exports.createPages = async ({ graphql, actions }) => {
             id
             slug
             title
-            content(format: RAW)
+            content
           }
         }
       }
@@ -150,22 +103,21 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   // Check for any errors
-  if (resultOfSuppliers.errors) {
-    throw new Error(resultOfSuppliers.errors)
+  if (result.errors) {
+    throw new Error(result.errors)
   }
 
   // Access query results via object destructuring
-  const { wpgraphqlOfSuppliers } = resultOfSuppliers.data
+  const { wpgraphql } = result.data
 
   // Create Page pages.
+  const pageTemplate = path.resolve(`./src/templates/page.js`)
   const supplierTemplate = path.resolve(`./src/templates/supplier.js`)
   // We want to create a detailed page for each page node.
   // The path field contains the relative original WordPress link
   // and we use it for the slug to preserve url structure.
   // The Page ID is prefixed with 'PAGE_'
-  wpgraphqlOfPages.suppliers.nodes.forEach(node => {
-    console.log(node.supplierInfoGroup)
-
+  wpgraphql.pages.nodes.forEach(node => {
     // Gatsby uses Redux to manage its internal state.
     // Plugins and sites can use functions like "createPage"
     // to interact with Gatsby.
@@ -174,17 +126,37 @@ exports.createPages = async ({ graphql, actions }) => {
       // as a template component. The `context` is
       // optional but is often necessary so the template
       // can query data specific to each page.
-      path: `suppliers/${node.slug}`,
+      path: node.isFrontPage ? `/` : `/${node.slug}`,
+      component: slash(pageTemplate),
+      context: {
+        id: node.id,
+        title: node.title,
+        slug: node.slug,
+        blocks: node.blocks,
+      },
+    })
+  })
+
+  wpgraphql.suppliers.nodes.forEach(node => {
+    console.log(node)
+    createPage({
+      // Each page is required to have a `path` as well
+      // as a template component. The `context` is
+      // optional but is often necessary so the template
+      // can query data specific to each page.
+      path: `/suppliers/${node.slug}`,
       component: slash(supplierTemplate),
       context: {
         id: node.id,
         title: node.title,
         content: node.content,
         slug: node.slug,
-        gallery: node.supplierInfoGroup.gallery.map(
-          imgObj => imgObj.mediaItemUrl
-        ),
-        logo: node.supplierInfoGroup.logo.mediaItemUrl,
+        gallery: node.supplierInfoGroup.gallery
+          ? node.supplierInfoGroup.gallery.map(imgObj => imgObj.mediaItemUrl)
+          : [],
+        supplierLogo: node.supplierInfoGroup.logo
+          ? node.supplierInfoGroup.logo.mediaItemUrl
+          : "",
         address: node.supplierInfoGroup.supplierContactAddress,
         email: node.supplierInfoGroup.supplierEmail,
         facebook: node.supplierInfoGroup.supplierFacebookUrl,

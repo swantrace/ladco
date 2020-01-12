@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "font-awesome/css/font-awesome.min.css"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import logo from "../assets/images/logo.png"
 
 const menus = [
   { name: "HOME", id: "/" },
@@ -15,13 +16,14 @@ const menus = [
 ]
 
 export default ({
+  pageContext,
   pageContext: {
     id,
     title,
     content,
     slug,
     gallery,
-    logo,
+    supplierLogo,
     address,
     email,
     facebook,
@@ -33,10 +35,11 @@ export default ({
     website,
   },
 }) => {
+  console.log(pageContext, id)
   return (
     <Fragment>
       <Header menus={menus} className="LadcoHeaderArea" logo={logo} />
-      <main className={`main-${pageContext.slug}`}>
+      <main className={`main-${slug}`}>
         <p>id: {id}</p>
         <p>title: {title}</p>
         <div dangerouslySetInnerHTML={{ __html: content }}></div>
@@ -48,8 +51,8 @@ export default ({
             </li>
           ))}
         </ul>
-        <p>
-          <img src={logo} />
+        <p style={{ width: "200px" }}>
+          <img src={supplierLogo} />
         </p>
         <p>address: {address}</p>
         <p>email: {email}</p>
