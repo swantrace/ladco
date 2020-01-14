@@ -1,5 +1,4 @@
 import React, { Fragment } from "react"
-import { Container } from "reactstrap"
 import { SlideShow } from "../../Elements/index"
 import slideHome1 from "../../../assets/images/slide-home-1.jpg"
 import "./style.scss"
@@ -19,7 +18,7 @@ const Home = props => {
     <Fragment>
       <SlideShow settings={settings}>
         <div>
-          <img src={slideHome1} />
+          <img src={slideHome1} alt="" />
         </div>
       </SlideShow>
       {props.children}

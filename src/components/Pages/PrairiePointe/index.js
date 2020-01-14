@@ -1,5 +1,4 @@
 import React, { Fragment } from "react"
-import { Container } from "reactstrap"
 import { SlideShow } from "../../Elements/index"
 import slidePrairiePointe1 from "../../../assets/images/slide-praire-pointe-1.jpg"
 import slidePrairiePointe2 from "../../../assets/images/slide-praire-pointe-2.jpg"
@@ -22,13 +21,13 @@ const PrairiePointe = props => {
       <div className="prairie-pointe-slideshow-wrapper">
         <SlideShow settings={settings}>
           <div>
-            <img src={slidePrairiePointe1} />
+            <img src={slidePrairiePointe1} style={{ width: "100%" }} alt="" />
           </div>
           <div>
-            <img src={slidePrairiePointe2} />
+            <img src={slidePrairiePointe2} style={{ width: "100%" }} alt="" />
           </div>
           <div>
-            <img src={slidePrairiePointe3} />
+            <img src={slidePrairiePointe3} style={{ width: "100%" }} alt="" />
           </div>
         </SlideShow>
       </div>

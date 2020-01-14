@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import { Container, Row, Col } from "reactstrap"
-import { H2, H3, H4, Ul, Li, FontAwesome } from "../Elements"
+import { H4, Ul, Li, FontAwesome } from "../Elements"
 import "./style.scss"
 
 const Footer = ({ menus }) => {
@@ -79,7 +79,11 @@ const Footer = ({ menus }) => {
           <Row>
             <Col>
               <b>Copyright Ladco Company Limited 2014-2019</b>| Powered By{" "}
-              <a href="http://idomedia.ca" target="_blank">
+              <a
+                href="http://idomedia.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 IDO MEDIA
               </a>
             </Col>

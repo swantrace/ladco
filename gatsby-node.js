@@ -34,9 +34,6 @@ exports.createPages = async ({ graphql, actions }) => {
               ... on WPGraphQL_CoreHtmlBlock {
                 saveContent
               }
-              ... on WPGraphQL_AcfPropertyMapModalTriggerBlock {
-                renderedContent
-              }
               ... on WPGraphQL_AcfProjectHeaderBlock {
                 renderedContent
               }
@@ -138,7 +135,6 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   wpgraphql.suppliers.nodes.forEach(node => {
-    console.log(node)
     createPage({
       // Each page is required to have a `path` as well
       // as a template component. The `context` is

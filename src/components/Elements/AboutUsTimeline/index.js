@@ -1,14 +1,21 @@
-import React, { Fragment } from "react"
+import React from "react"
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component"
+import "react-vertical-timeline-component/style.min.css"
 import "./style.scss"
 
 export default ({ timeline }) => (
-  <Fragment>
+  <VerticalTimeline animate={true}>
     {timeline.map(({ date, icon, milestone }) => (
-      <div>
-        <p>{date}</p>
-        <p>{icon}</p>
-        <p>{milestone}</p>
-      </div>
+      <VerticalTimelineElement
+        date={date}
+        iconStyle={{ background: "#859e40", color: "#fff" }}
+        icon={() => `<span className="icon ${icon}"></span>`}
+      >
+        <h2>{milestone}</h2>
+      </VerticalTimelineElement>
     ))}
-  </Fragment>
+  </VerticalTimeline>
 )

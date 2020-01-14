@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import ComingSoon from "react-coming-soon"
 import "./style.scss"
 

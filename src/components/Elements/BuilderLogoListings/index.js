@@ -16,6 +16,7 @@ export default ({ title, builders }) => (
       {builders.map(builder => (
         <Col
           md="2"
+          key={builder.slug}
           className="my-2 d-flex align-items-center justify-content-center"
         >
           <a href={`/suppliers/${builder.slug}`} style={{ maxHeight: "60px" }}>

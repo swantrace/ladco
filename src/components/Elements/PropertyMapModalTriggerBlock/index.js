@@ -7,7 +7,7 @@ export default ({ content, target_link }) => (
     <Row>
       <Col>
         <div
-          className="sc-highlight-full-width animated-block call-to-action-2  group1 transparent-animation fadeIn animated"
+          className="animated-block call-to-action-2  group1 transparent-animation fadeIn animated"
           data-animation="fadeIn"
           style={{ animationDelay: "0s" }}
         >
@@ -16,15 +16,15 @@ export default ({ content, target_link }) => (
               <div className="punch_text">
                 <b>{content}</b>{" "}
                 <a
-                  href="#"
+                  href="#temp"
                   target="_self"
-                  class="mappopup"
+                  className="mappopup"
                   data-content={target_link}
                 >
                   View now!
                 </a>
               </div>
-              <div class="clear"></div>
+              <div className="clearfix"></div>
             </div>
           </Container>
         </div>

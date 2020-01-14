@@ -10,7 +10,6 @@ import SouthPointe from "../components/Pages/SouthPointe"
 import Royalwood from "../components/Pages/Royalwood"
 import AboutUs from "../components/Pages/AboutUs"
 import ContactUs from "../components/Pages/ContactUs"
-import "../components/CustomElements"
 import logo from "../assets/images/logo.png"
 import ProjectLinkBanner from "../components/Elements/ProjectLinkBanner"
 import ServiceIconBoxes from "../components/Elements/ServiceIconBoxes"
@@ -87,70 +86,83 @@ export default ({ pageContext }) => {
   return (
     <Fragment>
       <Header menus={menus} className="LadcoHeaderArea" logo={logo} />
-      <main className={`main-${pageContext.slug}`}>
+      <main
+        className={`main-${pageContext.slug}`}
+        style={{ overflow: "hidden" }}
+      >
         <PageWrapperFunc pageContext={pageContext}>
-          {pageContext.blocks.map(block =>
+          {pageContext.blocks.map((block, index) =>
             block.__typename === "WPGraphQL_CoreHtmlBlock" ? (
               <div
+                className="custom-html"
+                key={`core-html-block-${index}`}
                 dangerouslySetInnerHTML={{ __html: block.saveContent }}
               ></div>
             ) : block.__typename === "WPGraphQL_AcfProjectLinkBannerBlock" ? (
               <ProjectLinkBanner
+                key={`acf-project-link-banner-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></ProjectLinkBanner>
             ) : block.__typename === "WPGraphQL_AcfServiceIconBoxesBlock" ? (
               <ServiceIconBoxes
+                key={`acf-service-icon-boxes-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></ServiceIconBoxes>
             ) : block.__typename === "WPGraphQL_AcfAboutUsTimelineBlock" ? (
               <AboutUsTimeline
+                key={`acf-about-us-timeline-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></AboutUsTimeline>
-            ) : block.__typename ===
-              "WPGraphQL_AcfPropertyMapModalTriggerBlock" ? (
-              <PropertyMapModalTriggerBlock
-                {...JSON.parse(block.renderedContent)}
-              ></PropertyMapModalTriggerBlock>
             ) : block.__typename === "WPGraphQL_AcfProjectHeaderBlock" ? (
               <ProjectHeader
+                key={`acf-project-header-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></ProjectHeader>
             ) : block.__typename === "WPGraphQL_AcfBuilderLogoListingsBlock" ? (
               <BuilderLogoListings
+                key={`acf-builder-logo-listings-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></BuilderLogoListings>
             ) : block.__typename ===
               "WPGraphQL_AcfPropertyMapModalTriggerBlock" ? (
               <PropertyMapModalTriggerBlock
+                key={`acf-property-map-modal-trigger-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></PropertyMapModalTriggerBlock>
             ) : block.__typename ===
               "WPGraphQL_AcfPropertyMapModalTrigger2Block" ? (
               <PropertyMapModalTrigger2Block
+                key={`acf-property-map-modal-trigger-2-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></PropertyMapModalTrigger2Block>
             ) : block.__typename === "WPGraphQL_AcfProjectPhotoGalleryBlock" ? (
               <ProjectPhotoGallery
+                key={`acf-project-photo-gallery-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></ProjectPhotoGallery>
             ) : block.__typename === "WPGraphQL_AcfProjectFeatureCardsBlock" ? (
               <ProjectFeatureCards
+                key={`acf-project-feature-cards-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></ProjectFeatureCards>
             ) : block.__typename === "WPGraphQL_AcfAboutUsHeaderBlock" ? (
               <AboutUsHeader
+                key={`acf-about-us-header-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></AboutUsHeader>
             ) : block.__typename === "WPGraphQL_AcfAboutUsIntroductionBlock" ? (
               <AboutUsIntroduction
+                key={`acf-about-us-introduction-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></AboutUsIntroduction>
             ) : block.__typename === "WPGraphQL_AcfAboutUsWhoWeAreBlock" ? (
               <AboutUsWhoWeAre
+                key={`acf-about-us-who-we-are-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></AboutUsWhoWeAre>
             ) : block.__typename === "WPGraphQL_AcfFeatureIconBoxesBlock" ? (
               <FeatureIconBoxes
+                key={`acf-feature-icon-boxes-block-${index}`}
                 {...JSON.parse(block.renderedContent)}
               ></FeatureIconBoxes>
             ) : null

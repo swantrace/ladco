@@ -52,7 +52,7 @@ export default ({
           ))}
         </ul>
         <p style={{ width: "200px" }}>
-          <img src={supplierLogo} />
+          <img src={supplierLogo} alt="" />
         </p>
         <p>address: {address}</p>
         <p>email: {email}</p>

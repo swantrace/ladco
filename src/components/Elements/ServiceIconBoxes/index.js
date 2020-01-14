@@ -8,19 +8,19 @@ export default ({ service_icon_box }) => {
       <Row>
         {service_icon_box.map(
           ({ icon, title, content, link_target, link_text }) => (
-            <Col className="my-1">
+            <Col className="my-1" key={title}>
               <div
                 className="icon-box  animated-block group1 transparent-animation fadeIn animated"
                 data-animation="fadeIn"
                 style={{ animationDelay: "0s" }}
               >
                 <span className={`icon ${icon} icon-4x`}></span>
-                <div class="clearfix"></div>
+                <div className="clearfix"></div>
                 <h2>{title}</h2>
                 <p>{content}</p>
                 <a href={link_target} target="_self">
                   {link_text}
-                  <i class="icon icon-point-right"></i>
+                  <i className="icon icon-point-right"></i>
                 </a>
               </div>
             </Col>

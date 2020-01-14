@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { Container, Row, Col } from "reactstrap"
 import "./style.scss"
 
@@ -47,7 +47,7 @@ export default ({ logo, feature_icon_box }) => (
           Founded 1919
         </h2>
         <div className="clearfix" style={{ height: "60px" }}></div>
-        <ul class="fullimage_box2 " data-animation="">
+        <ul className="fullimage_box2 " data-animation="">
           <li>
             <i className={`icon ${feature_icon_box[2].icon} icon-3x`}></i>
           </li>
@@ -61,7 +61,7 @@ export default ({ logo, feature_icon_box }) => (
         <div className="clearfix" style={{ height: "30px" }}></div>
       </Col>
       <Col>
-        <ul class="fullimage_box2 " data-animation="">
+        <ul className="fullimage_box2 " data-animation="">
           <li>
             <i className={`icon ${feature_icon_box[3].icon} icon-3x`}></i>
           </li>

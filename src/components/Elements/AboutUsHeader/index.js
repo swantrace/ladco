@@ -3,6 +3,9 @@ import "./style.scss"
 
 export default ({ title }) => (
   <Fragment>
-    <span dangerouslySetInnerHTML={{ __html: title }}></span>
+    <span
+      dangerouslySetInnerHTML={{ __html: title }}
+      className="text-center"
+    ></span>
   </Fragment>
 )

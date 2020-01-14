@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { Container, Row, Col } from "reactstrap"
 import "./style.scss"
 
@@ -7,7 +7,7 @@ export default ({ title, content, link_target, link_text }) => (
     <Row>
       <Col>
         <div
-          class="punch_text03 alternative_punch animated-block  group2 transparent-animation fadeIn animated"
+          className="punch_text03 alternative_punch animated-block  group2 transparent-animation fadeIn animated"
           data-animation="fadeIn"
           style={{ animationDelay: "0s" }}
         >
@@ -23,6 +23,7 @@ export default ({ title, content, link_target, link_text }) => (
                 <a
                   href={link_target}
                   target="_blank"
+                  rel="noopener noreferrer"
                   style={{ fontWeight: "bolder", fontFamily: "Open Sans" }}
                 >
                   <i
