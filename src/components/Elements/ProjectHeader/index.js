@@ -15,7 +15,7 @@ export default ({ title, intro, content }) => (
           dangerouslySetInnerHTML={{ __html: intro }}
         ></div>
         <div
-          className="text-center"
+          className="text-left"
           dangerouslySetInnerHTML={{ __html: content }}
         ></div>
       </Col>

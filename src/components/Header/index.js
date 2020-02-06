@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Container, Row, Col } from "reactstrap"
-import { Div, Image, Ul, Li, Button, FontAwesome } from "../elements"
+import { Div, Image, Ul, Li, Button, FontAwesome } from "../Elements/index"
 import { Link } from "gatsby"
 import Sticky from "react-sticky-el"
 

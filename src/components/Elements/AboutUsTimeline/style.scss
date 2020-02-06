@@ -1,0 +1,20 @@
+.about-us-timeline {
+  background-color: lightgray;;
+  padding: 2%;
+  .vertical-timeline--two-columns .vertical-timeline-element-icon {
+    .icon {
+      position: relative; 
+      top: 6px; 
+      left: 7px;
+    }
+  }
+  @media only screen and (min-width: 1170px){
+    .vertical-timeline--two-columns .vertical-timeline-element-icon {
+        .icon {
+          position: relative; 
+          top: 15px; 
+          left: 17px;
+        }
+    }
+  }
+}

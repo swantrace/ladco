@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { SlideShow } from "../../Elements/index"
+import SlideShow from "../../Elements/SlideShow/index"
 import slideRoyalWood1 from "../../../assets/images/slide-royal-wood-1.jpg"
 import slideRoyalWood2 from "../../../assets/images/slide-royal-wood-2.jpg"
 import "./style.scss"
@@ -16,14 +16,18 @@ const Royalwood = props => {
   }
   return (
     <Fragment>
-      <SlideShow settings={settings}>
-        <div>
-          <img src={slideRoyalWood1} alt="" />
-        </div>
-        <div>
-          <img src={slideRoyalWood2} alt="" />
-        </div>
-      </SlideShow>
+      <div className="royalwood-slideshow-wrapper">
+        <SlideShow settings={settings}>
+          <div>
+            <img src={slideRoyalWood1} alt="" />
+            <h1 className="caption">Beside REAL NATURE</h1>
+          </div>
+          <div>
+            <img src={slideRoyalWood2} alt="" />
+            <h1 className="caption">Fantastic NATURE, Living in the FOREST</h1>
+          </div>
+        </SlideShow>
+      </div>
       {props.children}
     </Fragment>
   )

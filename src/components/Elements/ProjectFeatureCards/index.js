@@ -61,12 +61,7 @@ export default ({ project_feature_card }) => {
             </div>
           </Col>
         ))}
-        <Modal
-          isOpen={modal}
-          toggle={toggleModalHandler}
-          centered={true}
-          size="lg"
-        >
+        <Modal isOpen={modal} toggle={toggleModalHandler} centered={true}>
           <ModalHeader toggle={toggleModalHandler}>{modalTitle}</ModalHeader>
           <ModalBody>
             <img src={modalImage} alt={modalTitle} />

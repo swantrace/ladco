@@ -16,22 +16,22 @@ export default ({ title, content, photos }) => {
   }, [])
 
   function thumbnailStyleFn() {
-    console.log(this)
     return {
       backgroundColor: "black",
     }
   }
 
   return (
-    <Container className="mt-5 project-gallery-photos mb-5">
+    <Container className="project-gallery-photos mt-5 mb-5">
       <Row>
         <Col className="text-center">
           <h1>{title}</h1>
           <p>{content}</p>
-          <div class="portfolioFilter">
+          <div className="portfolioFilter">
             {tags.length > 1
               ? tags.map(tag => (
                   <Button
+                    key={tag}
                     onClick={e => {
                       typeButtonClickedHandler(tag)
                     }}

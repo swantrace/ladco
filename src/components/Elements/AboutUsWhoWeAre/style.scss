@@ -1,0 +1,37 @@
+.about-us-who-we-are {
+  ul.tabs-horizontal {
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+    min-height: 45px;
+    width: 100%;
+    background: #859e40;
+    li.nav-item {
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        font-size: 14px;
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        padding: 0px 15px 0px 15px;
+        font-family: 'Open Sans' !important;
+        font-weight: normal;
+        height: 44px;
+        line-height: 44px;
+        &:hover {
+          border: none;
+        }
+      }
+      &.active{
+        a {
+          color: #454545;
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+}

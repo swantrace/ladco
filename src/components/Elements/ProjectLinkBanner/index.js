@@ -1,5 +1,6 @@
 import React from "react"
 import { Container, Row, Col } from "reactstrap"
+import { Link } from "gatsby"
 import "./style.scss"
 
 export default ({ title, content, link_target, link_text }) => (
@@ -20,8 +21,8 @@ export default ({ title, content, link_target, link_text }) => (
                 </h1>
               </Col>
               <Col className="right" md="3">
-                <a
-                  href={link_target}
+                <Link
+                  to={link_target}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ fontWeight: "bolder", fontFamily: "Open Sans" }}
@@ -36,7 +37,7 @@ export default ({ title, content, link_target, link_text }) => (
                     }}
                   ></i>
                   &nbsp; {link_text}
-                </a>
+                </Link>
               </Col>
             </Row>
           </Container>

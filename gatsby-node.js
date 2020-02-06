@@ -68,6 +68,28 @@ exports.createPages = async ({ graphql, actions }) => {
                 renderedContent
               }
             }
+            seo {
+              title
+              metaDesc
+              focuskw
+              metaKeywords
+              metaRobotsNoindex
+              metaRobotsNofollow
+              opengraphTitle
+              opengraphDescription
+              opengraphImage {
+                altText
+                sourceUrl
+                srcSet
+              }
+              twitterTitle
+              twitterDescription
+              twitterImage {
+                altText
+                sourceUrl
+                srcSet
+              }
+            }
           }
         }
         suppliers(first: 30) {
@@ -90,9 +112,74 @@ exports.createPages = async ({ graphql, actions }) => {
               supplierWebsite
             }
             id
+            databaseId
             slug
             title
             content
+            seo {
+              title
+              metaDesc
+              focuskw
+              metaKeywords
+              metaRobotsNoindex
+              metaRobotsNofollow
+              opengraphTitle
+              opengraphDescription
+              opengraphImage {
+                altText
+                sourceUrl
+                srcSet
+              }
+              twitterTitle
+              twitterDescription
+              twitterImage {
+                altText
+                sourceUrl
+                srcSet
+              }
+            }
+          }
+        }
+        properties(first: 5000, after: null) {
+          nodes {
+            id
+            title
+            propertyInfoGroup {
+              coords
+              showHome
+              sold
+              propertyCode
+              supplier {
+                ... on WPGraphQL_Supplier {
+                  databaseId
+                }
+              }
+            }
+            propertyCategories {
+              nodes {
+                slug
+              }
+            }
+          }
+        }
+        stages {
+          nodes {
+            title
+            stageInfoGroup {
+              coords
+            }
+            propertyCategories {
+              nodes {
+                slug
+              }
+            }
+          }
+        }
+        propertyCategories {
+          nodes {
+            slug
+            databaseId
+            name
           }
         }
       }
@@ -130,6 +217,11 @@ exports.createPages = async ({ graphql, actions }) => {
         title: node.title,
         slug: node.slug,
         blocks: node.blocks,
+        seo: node.seo,
+        properties: wpgraphql.properties.nodes,
+        suppliers: wpgraphql.suppliers.nodes,
+        stages: wpgraphql.stages.nodes,
+        propertyCategories: wpgraphql.propertyCategories.nodes,
       },
     })
   })
@@ -162,15 +254,8 @@ exports.createPages = async ({ graphql, actions }) => {
         telephone: node.supplierInfoGroup.supplierTelephone,
         twitter: node.supplierInfoGroup.supplierTwitterUrl,
         website: node.supplierInfoGroup.supplierWebsite,
+        seo: node.seo,
       },
     })
-  })
-}
-exports.onCreateWebpackConfig = ({ actions }) => {
-  const { setWebpackConfig } = actions
-  setWebpackConfig({
-    externals: {
-      jquery: "jQuery",
-    },
   })
 }

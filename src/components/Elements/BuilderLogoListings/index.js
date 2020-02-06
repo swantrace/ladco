@@ -1,5 +1,6 @@
 import React from "react"
 import { Container, Row, Col } from "reactstrap"
+import { Link } from "gatsby"
 import "./style.scss"
 
 export default ({ title, builders }) => (
@@ -19,7 +20,7 @@ export default ({ title, builders }) => (
           key={builder.slug}
           className="my-2 d-flex align-items-center justify-content-center"
         >
-          <a href={`/suppliers/${builder.slug}`} style={{ maxHeight: "60px" }}>
+          <Link to={`/suppliers/${builder.slug}`} style={{ maxHeight: "60px" }}>
             <img
               src={builder.logo}
               alt={builder.slug}
@@ -29,7 +30,7 @@ export default ({ title, builders }) => (
                 width: "auto",
               }}
             />
-          </a>
+          </Link>
         </Col>
       ))}
     </Row>

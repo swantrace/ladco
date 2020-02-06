@@ -1,0 +1,27 @@
+.royalwood-slideshow-wrapper {
+  .slick-next {
+    right: 25px;
+  }
+
+  .slick-prev {
+    left: 25px;
+    z-index: 1;
+  }
+
+  h1.caption {
+    z-index: 2;
+    white-space: nowrap;
+    transition: all 0s ease 0s;
+    position: absolute;
+    font-size: 3vw;
+    left: 22vw;
+    top: 8vw;
+    visibility: visible;
+    opacity: 1;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);
+    font-family: 'Open Sans', sans;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+  }
+}

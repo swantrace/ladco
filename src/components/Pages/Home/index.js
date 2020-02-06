@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { SlideShow } from "../../Elements/index"
+import SlideShow from "../../Elements/SlideShow/index"
 import slideHome1 from "../../../assets/images/slide-home-1.jpg"
 import "./style.scss"
 
@@ -16,11 +16,18 @@ const Home = props => {
   }
   return (
     <Fragment>
-      <SlideShow settings={settings}>
-        <div>
-          <img src={slideHome1} alt="" />
-        </div>
-      </SlideShow>
+      <div className="home-slideshow-wrapper">
+        <SlideShow settings={settings}>
+          <div>
+            <img src={slideHome1} alt="" />
+            <h1 className="caption">LADCO COMPANY LIMITED</h1>
+            <h3 className="caption">
+              A name Winnipeg has trusted for over 100 years.
+            </h3>
+          </div>
+        </SlideShow>
+      </div>
+
       {props.children}
     </Fragment>
   )

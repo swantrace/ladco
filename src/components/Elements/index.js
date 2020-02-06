@@ -1,5 +1,4 @@
 import React from "react"
-export SlideShow from "./SlideShow/index"
 
 export const Div = ({ className, children, onClick, style, id }) => {
   return (

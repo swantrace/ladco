@@ -1,0 +1,49 @@
+@media (min-width: 992px) {
+  .modal-lg, .modal-xl {
+      max-width: 90%;
+  }
+  .property-detail{
+    .modal-dialog {
+      min-width: 700px;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-lg {
+    max-width: 90%;
+  }
+  // .property-detail{
+  //   .modal-dialog {
+  //     min-width: 80%;
+  //   }
+  // }
+}
+
+
+.property-detail{
+  .modal-dialog {
+    .modal-content{
+      overflow: hidden; 
+      .modal-body {
+        display: flex;
+        padding: 0;
+        flex-direction: column;
+        padding: 17px;
+      }
+    }
+  }
+}
+
+.popup-map {
+  .modal {
+    z-index: 10001;
+    .modal-body {
+      background-color: #ebf9d6;
+    }
+  }
+  .modal-backdrop {
+    z-index: 10000;
+  }
+}
+

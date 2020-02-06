@@ -9,14 +9,14 @@ header {
       top: 0;
       width: 100%;
 
-      .container {
-        padding: 10px 0;
-        max-width: 1170px;
-        .responsiveMenuWrap  {
-          padding: 0;
-        }
-        transition: padding 0.5s;
-      }
+    //   .container {
+    //     padding: 10px 0;
+    //     max-width: 1170px;
+    //     .responsiveMenuWrap  {
+    //       padding: 0;
+    //     }
+    //     transition: padding 0.5s;
+    //   }
 
       &.sticky {
           position: fixed;
@@ -25,7 +25,7 @@ header {
           width: 100% !important;
           background: #fff;
           box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1);
-          z-index: 9999;
+          z-index: 100;
           .container {
             padding: 0;
           }
@@ -47,7 +47,8 @@ header {
           justify-content: center;
           img {
             max-width: 90%;
-            height: auto;
+            max-height: 73px;
+            height: 100%;
             margin-bottom: 14px;
             @media (max-width:991px) {
               margin-bottom: 0;
@@ -109,6 +110,17 @@ header {
                   }
               }
           }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+            padding: 10px 0;
+            max-width: 1170px;
+            .responsiveMenuWrap  {
+            padding: 0;
+            }
+            transition: padding 0.5s;
+        }
       }
 
       @media (max-width:991px) {
