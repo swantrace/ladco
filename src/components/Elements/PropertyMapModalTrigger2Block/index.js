@@ -43,7 +43,7 @@ export default ({
   const areas = properties
     .filter(function(property) {
       return (
-        property.category === propertyCategory.slug && property.sold === true
+        property.category === propertyCategory.slug && property.sold !== true
       )
     })
     .map(property => {
