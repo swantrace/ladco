@@ -168,9 +168,7 @@ const ContactUs = props => {
                   <br />
                   200-40 Lakewood Boulevard,Winnipeg, Manitoba R2J 2M6&nbsp;
                   <br />
-                  Telephone: 877-474-5699
-                  <br />
-                  FAX: 204-255-3652
+                  Telephone: 204-982-5900
                   <br /> Website:{" "}
                   <a href="https://www.ladco.mb.ca">www.ladco.mb.ca</a>
                 </li>

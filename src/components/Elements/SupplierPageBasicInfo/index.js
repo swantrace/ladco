@@ -15,7 +15,7 @@ export default ({
       <img
         src={supplierLogo}
         alt=""
-        style={{ maxWidth: "90px", marginRight: "10px" }}
+        style={{ maxWidth: "300px", marginRight: "10px", maxHeight: "100px", marginBottom: "20px" }}
       ></img>
       <h2
         style={{
@@ -23,6 +23,7 @@ export default ({
           fontSize: "27px",
           lineHeight: "52px",
           fontWeight: "normal",
+          display: "none",
         }}
         dangerouslySetInnerHTML={{ __html: title }}
       />

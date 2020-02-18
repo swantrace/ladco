@@ -19,19 +19,13 @@ const Footer = ({ menus }) => {
                 style={{ listStyle: "none", paddingLeft: 0 }}
               >
                 <Li>
-                  <FontAwesome name="phone" /> 877-595-8796
+                  <FontAwesome name="phone" /> 204-982-5900
                 </Li>
                 <Li>
-                  <FontAwesome name="fax" /> 204-255-3652
+                  <FontAwesome name="envelope-o" /> info@ladcocompany.com
                 </Li>
                 <Li>
-                  <FontAwesome name="envelope-o" /> info@ladcocompany.com.
-                </Li>
-                <Li>
-                  <FontAwesome name="map-marker" />
-                  200-40 Lakewood Boulevard,
-                  <br />
-                  Winnipeg, MB, R2J 2M6
+                  <FontAwesome name="map-marker" /> 200-40 Lakewood Boulevard,  <br />Winnipeg, MB, R2J 2M6
                 </Li>
               </Ul>
             </Col>

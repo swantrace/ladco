@@ -97,12 +97,12 @@ export default ({
         imageMapperEl.current.container.style.setProperty("overflow", "hidden")
         imageMapperEl.current.img.style.setProperty(
           "transform",
-          `scale(1.5) translate(${modalBodyCenterX -
+          `scale(2.35) translate(${modalBodyCenterX -
             areaCenterX}px, ${modalBodyCenterY - areaCenterY}px)`
         )
         imageMapperEl.current.canvas.style.setProperty(
           "transform",
-          `scale(1.5) translate(${modalBodyCenterX -
+          `scale(2.35) translate(${modalBodyCenterX -
             areaCenterX}px, ${modalBodyCenterY - areaCenterY}px)`
         )
       }
