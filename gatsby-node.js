@@ -226,6 +226,12 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  createRedirect({
+    fromPath: `/suppliers`,
+    toPath: `/`,
+    isPermanent: `true`,
+  })
+
   wpgraphql.suppliers.nodes.forEach(node => {
     createPage({
       // Each page is required to have a `path` as well
