@@ -50,7 +50,7 @@ export default ({
         _id: `property,${property.propertyCode},${property.supplierId}`,
         shape: "poly",
         coords: property.coords == null ? [] : property.coords.split(","),
-        preFillColor: property.showHome ? "#e8b586" : "#ece692",
+        preFillColor: property.showHome ? "#e8b586" : "#ece69291",
       }
     })
     .concat(

@@ -67,3 +67,8 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+#src-old & ladco.zip
+src-old
+src-old/
+ladco.zip

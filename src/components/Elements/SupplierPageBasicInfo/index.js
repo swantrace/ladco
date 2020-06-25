@@ -101,7 +101,7 @@ export default ({
           <strong>Website: </strong>
           <span>
             {" "}
-            <a href={telephone} target="_blank" rel="noopener noreferrer">
+            <a href={website} target="_blank" rel="noopener noreferrer">
               {website}
             </a>
           </span>

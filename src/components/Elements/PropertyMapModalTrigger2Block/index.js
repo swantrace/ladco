@@ -51,7 +51,7 @@ export default ({
         _id: `property,${property.propertyCode},${property.supplierId}`,
         shape: "poly",
         coords: property.coords == null ? [] : property.coords.split(","),
-        preFillColor: property.showHome ? "#e8b586" : "#ece692",
+        preFillColor: property.showHome ? "#e8b586" : "#ece69291",
       }
     })
     .concat(
@@ -98,12 +98,12 @@ export default ({
         imageMapperEl.current.container.style.setProperty("overflow", "hidden")
         imageMapperEl.current.img.style.setProperty(
           "transform",
-          `scale(1.5) translate(${modalBodyCenterX -
+          `scale(2.35) translate(${modalBodyCenterX -
             areaCenterX}px, ${modalBodyCenterY - areaCenterY}px)`
         )
         imageMapperEl.current.canvas.style.setProperty(
           "transform",
-          `scale(1.5) translate(${modalBodyCenterX -
+          `scale(2.35) translate(${modalBodyCenterX -
             areaCenterX}px, ${modalBodyCenterY - areaCenterY}px)`
         )
       }

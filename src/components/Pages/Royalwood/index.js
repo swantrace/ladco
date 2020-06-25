@@ -2,8 +2,10 @@ import React, { Fragment } from "react"
 import SlideShow from "../../Elements/SlideShow/index"
 import slideRoyalWood1 from "../../../assets/images/slide-royal-wood-1.jpg"
 import slideRoyalWood2 from "../../../assets/images/slide-royal-wood-2.jpg"
+import { Helmet } from 'react-helmet'
 import "./style.scss"
 
+const TITLE = 'Ladco Company Limited | Royalwood'
 const Royalwood = props => {
   const settings = {
     dots: true,
@@ -16,6 +18,9 @@ const Royalwood = props => {
   }
   return (
     <Fragment>
+      <Helmet>
+        <title>{ TITLE }</title>
+      </Helmet>
       <div className="royalwood-slideshow-wrapper">
         <SlideShow settings={settings}>
           <div>

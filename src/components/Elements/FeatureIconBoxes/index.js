@@ -2,7 +2,7 @@ import React from "react"
 import { Container, Row, Col } from "reactstrap"
 import "./style.scss"
 
-export default ({ logo, feature_icon_box }) => (
+export default ({ feature_icon_box }) => (
   <Container className="mt-4 mb-5 feature-icon-boxes" fluid="xl">
     <Row>
       <Col>
@@ -34,7 +34,7 @@ export default ({ logo, feature_icon_box }) => (
       <Col>
         <div className="clearfix" style={{ height: "70px" }}></div>
         <img
-          src={logo}
+          src={"https://ladco.mb.ca/backend/wp-content/uploads/2020/01/newlogo.png"}
           className="wp-post-image aligncenter dont_scale"
           alt=""
           title="Founded 1919"

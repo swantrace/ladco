@@ -1,8 +1,10 @@
 import React, { Fragment } from "react"
 import SlideShow from "../../Elements/SlideShow/index"
 import slideHome1 from "../../../assets/images/slide-home-1.jpg"
+import {Helmet} from 'react-helmet'
 import "./style.scss"
 
+const TITLE = 'Ladco Company Limited'
 const Home = props => {
   const settings = {
     dots: true,
@@ -16,6 +18,9 @@ const Home = props => {
   }
   return (
     <Fragment>
+      <Helmet>
+        <title>{ TITLE }</title>
+      </Helmet>
       <div className="home-slideshow-wrapper">
         <SlideShow settings={settings}>
           <div>

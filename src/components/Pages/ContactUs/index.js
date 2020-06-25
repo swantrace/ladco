@@ -4,8 +4,10 @@ import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 import AutoHide from "@ygpedroso/react-autohide"
 import SupplierPageTitle from "../../Elements/SupplierPageTitle"
+import { Helmet } from 'react-helmet'
 import "./style.scss"
 
+const TITLE = 'Ladco Company Limited | Contact Us'
 const CONTACT_MUTATION = gql`
   mutation CreateSubmissionMutation(
     $clientMutationId: String!
@@ -53,6 +55,9 @@ const ContactUs = props => {
   }
   return (
     <Fragment>
+      <Helmet>
+        <title>{ TITLE }</title>
+      </Helmet>
       <SupplierPageTitle title="Contact Us"></SupplierPageTitle>
       <Container className="my-5">
         <Row>

@@ -2,8 +2,10 @@ import React, { Fragment } from "react"
 import SlideShow from "../../Elements/SlideShow/index"
 import slideSouthPointe1 from "../../../assets/images/slide-south-pointe-1.jpg"
 import slideSouthPointe2 from "../../../assets/images/slide-south-pointe-2.jpg"
+import { Helmet } from 'react-helmet'
 import "./style.scss"
 
+const TITLE = 'Ladco Company Limited | South Pointe'
 const SouthPointe = props => {
   const settings = {
     dots: true,
@@ -16,6 +18,9 @@ const SouthPointe = props => {
   }
   return (
     <Fragment>
+      <Helmet>
+        <title>{ TITLE }</title>
+      </Helmet>
       <div className="south-pointe-slideshow-wrapper">
         <SlideShow settings={settings}>
           <div>

@@ -3,8 +3,10 @@ import SlideShow from "../../Elements/SlideShow/index"
 import slidePrairiePointe1 from "../../../assets/images/slide-praire-pointe-1.jpg"
 import slidePrairiePointe2 from "../../../assets/images/slide-praire-pointe-2.jpg"
 import slidePrairiePointe3 from "../../../assets/images/slide-praire-pointe-3.jpg"
+import { Helmet } from 'react-helmet'
 import "./style.scss"
 
+const TITLE = 'Ladco Company Limited | Prairie Pointe'
 const PrairiePointe = props => {
   const settings = {
     dots: false,
@@ -18,6 +20,9 @@ const PrairiePointe = props => {
   }
   return (
     <Fragment>
+      <Helmet>
+        <title>{ TITLE }</title>
+      </Helmet>
       <div className="prairie-pointe-slideshow-wrapper">
         <SlideShow settings={settings}>
           <div>
